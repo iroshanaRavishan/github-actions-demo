@@ -34,3 +34,4 @@ jobs:
         run: |
           echo Multi line script - line 1,
           echo Multi line script - line 2.
+          echo Multi line script - line 3.
