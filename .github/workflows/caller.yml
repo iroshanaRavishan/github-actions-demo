@@ -15,7 +15,7 @@ jobs:
 
     # Pass required input variables to the reusable workflow
     with:
-      environment: production    # Providing a string input named 'environment'
+      environment: dev+local    # Providing a string input named 'environment'
 
     # Pass required secrets to the reusable workflow
     secrets:
