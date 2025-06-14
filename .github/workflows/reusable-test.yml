@@ -1,0 +1,34 @@
+# This is a reusable workflow file saved under the workflows directory
+
+# Name of the workflow as it appears in the GitHub Actions UI
+name: Reusable Test Workflow
+
+# This workflow is not triggered by push or pull — it's designed to be called by another workflow
+on:
+  workflow_call:
+    # Define inputs that must be provided by the calling workflow
+    inputs:
+      environment:                # Name of the input variable
+        required: true            # This input must be provided
+        type: string              # Data type of the input
+
+    # Define secrets that must be passed from the calling workflow
+    secrets:
+      MY_API_KEY:                 # Secret variable name expected from caller
+        required: true            # The secret is mandatory
+
+# Define the set of jobs in this workflow
+jobs:
+  run-tests:                      # Name of the job
+    runs-on: ubuntu-latest        # This job runs on a GitHub-hosted Ubuntu runner
+
+    steps:
+      # Step to print the environment input provided by the caller
+      - name: "Print Environment"
+        run: |
+          echo "Running tests in ${{ inputs.environment }} environment"
+
+      # Step to print the secret (note: GitHub masks secret values in logs automatically)
+      - name: "Checking secret Variables"
+        run: |
+          echo "Using secret: ${{ secrets.MY_API_KEY }}"
