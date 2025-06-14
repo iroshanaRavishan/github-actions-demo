@@ -8,7 +8,7 @@ on:
 # Global environment variables accessible to all jobs
 env: 
   # This variable can be accessed within any job or step
-  cloud: Google-Cloud
+  cloud: Google-Cloud-platform
 
 jobs:
   # Start of a job named 'welcome_job'
@@ -21,8 +21,8 @@ jobs:
       Greeting: Hello
 
     steps: 
-      # A step named "Hi, Welcome"
-      - name: "Hi, Welcome"
+      # A step named "Welcome"
+      - name: "Welcome"
         # This command tries to print a greeting using env variables
         run: echo "$Greeting $name. You work in $cloud"
 
