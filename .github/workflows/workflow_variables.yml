@@ -1,0 +1,31 @@
+# Name of the workflow displayed in the GitHub Actions UI
+name: Testing Workflow Variables
+
+# Trigger type: this workflow runs manually from the GitHub UI
+on:
+  workflow_dispatch
+
+# Global environment variables accessible to all jobs
+env: 
+  # This variable can be accessed within any job or step
+  cloud-name: Google-Cloud
+
+jobs:
+  # Start of a job named 'welcome_job'
+  welcome_job: 
+    # This job runs on a GitHub-hosted Ubuntu Linux runner
+    runs-on: ubuntu-latest
+
+    # Environment variables scoped to this job only
+    env:
+      Greeting: Hello
+
+    steps: 
+      # A step named "Hi, Welcome"
+      - name: "Hi, Welcome"
+        # This command tries to print a greeting using env variables
+        run: echo "$Greeting $name. You work in $cloud-name"
+
+        # Step-level environment variable (only for this step)
+        env:
+          name: Iroshana
