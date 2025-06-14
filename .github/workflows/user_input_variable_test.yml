@@ -1,0 +1,32 @@
+# Name of the workflow displayed in the GitHub Actions UI
+name: Testing User Input Variables
+
+# Trigger type: this workflow runs manually from the GitHub UI via the "Run workflow" button
+on:
+  workflow_dispatch:
+    inputs:
+      number1:
+        description: 'First Number'     # Description shown in the input field
+        default: '0'                    # Default value if the user doesn’t enter anything
+        required: true                  # Input is required to trigger the workflow
+      number2:
+        description: 'Second Number'
+        default: '0'
+        required: true
+
+jobs:
+  # A job named 'add_number'
+  add_number: 
+    # This job runs on a GitHub-hosted Ubuntu Linux runner
+    runs-on: ubuntu-latest
+
+    steps: 
+      # Step to add the two user-provided numbers
+      - name: "add the user entered numbers"
+        id: sum                           # Step ID so its output can be referenced later
+        # Uses shell arithmetic to compute the sum and sets it as an output variable
+        run: echo "::set-output name=sum::$((${{inputs.number1}} + ${{inputs.number2}}))"
+
+      # Step to display the computed sum using the output from the previous step
+      - name: Display the sum
+        run: echo "The sum of ${{inputs.number1}} and ${{inputs.number2}} is ${{steps.sum.outputs.sum}}"
