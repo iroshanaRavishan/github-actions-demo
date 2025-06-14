@@ -1,0 +1,35 @@
+# Name of the workflow displayed in the GitHub Actions UI
+name: Testing Context Variables
+
+# Trigger type: this workflow runs manually from the GitHub UI
+on:
+  workflow_dispatch
+
+# Global environment variables accessible to all jobs
+env: 
+  # This variable can be accessed within any job or step
+  cloud: Google-Cloud-platform
+
+jobs:
+  # Start of a job named 'test_context_variable'
+  test_context_variable: 
+    # This job runs on a GitHub-hosted Ubuntu Linux runner
+    runs-on: ubuntu-latest
+
+    steps: 
+      # A step named "Test the Context Variables"
+      - name: "Test the Context Variables"
+        # This block prints GitHub context variables using echo
+        run: |
+          # Prints the full repository name (e.g., user/repo)
+          echo "Repo Name - ${{ github.repository }}"
+          
+          # Prints the name of the current workflow as defined by 'name:' at the top
+          echo "Workflow Name - ${{ github.workflow }}"
+          
+          # Prints the username of the person who triggered the workflow
+          echo "Triggered By - ${{ github.triggering_actor }}"
+
+          # Prints the repository URL
+          echo "Repository URL - ${{ github.repositoryUrl }}"
+        
