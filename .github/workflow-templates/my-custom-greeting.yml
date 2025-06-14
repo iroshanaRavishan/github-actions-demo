@@ -8,9 +8,8 @@ description: >
   A simple starter template that prints a custom greeting message.
 # Description of the workflow
 
-on: 
-  workflow_dispatch
-  # Defines the event that triggers the workflow.
+on:
+  push:  # Required trigger for starter workflows
 
 jobs:
   greet:
