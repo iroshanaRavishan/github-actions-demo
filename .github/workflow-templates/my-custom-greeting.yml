@@ -1,0 +1,33 @@
+# This is a custom starter workflow template
+# Appears under the Actions UI when using starter templates
+
+name: Custom Greeting Workflow
+# Name of the workflow shown in GitHub Actions interface
+
+description: > 
+  A simple starter template that prints a custom greeting message.
+# Description of the workflow
+
+on: 
+  workflow_dispatch
+  # Defines the event that triggers the workflow.
+
+jobs:
+  greet:
+    # Name of the job, here it’s called "greet"
+
+    runs-on: ubuntu-latest
+    # This job runs on the latest Ubuntu GitHub-hosted runner
+
+    steps:
+      # Steps define the sequence of commands to run within this job
+
+      - name: Print greeting
+        # Name of this individual step
+        run: echo "Hello, welcome to your custom GitHub Actions workflow!"
+        # This command prints a welcome message to the logs
+
+      - name: Print current date and time
+        # Another step to display system date and time
+        run: date
+        # `date` is a Unix command to print current system time
