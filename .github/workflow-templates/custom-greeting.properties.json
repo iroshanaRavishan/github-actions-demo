@@ -1,0 +1,6 @@
+{
+  "name": "Custom Greeting Workflow",
+  "description": "A simple starter workflow that prints a greeting message.",
+  "iconName": "terminal",
+  "categories": ["Utility", "Other"]
+}
