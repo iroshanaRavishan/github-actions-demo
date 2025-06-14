@@ -1,0 +1,23 @@
+# This is the workflow file that calls a reusable workflow
+
+# The name of the workflow as it appears in the GitHub Actions UI
+name: Call Reusable Workflow
+
+# This workflow is triggered when a push is made to the 'main' branch
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # Define a job that uses a reusable workflow
+  call-test-workflow:
+    # This tells GitHub to use a reusable workflow from a specific path and branch
+    uses: iroshanaRavishan/github-actions-demo/.github/workflows/reusable-test.yml@main
+
+    # Pass required input variables to the reusable workflow
+    with:
+      environment: production    # Providing a string input named 'environment'
+
+    # Pass required secrets to the reusable workflow
+    secrets:
+      MY_API_KEY: ${{ secrets.MY_API_KEY }}  # Forwarding the secret from the current repo
