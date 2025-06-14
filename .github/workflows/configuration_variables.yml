@@ -1,5 +1,5 @@
 # Name of the workflow displayed in the GitHub Actions UI
-name: Testing Workflow Variables
+name: Testing Configuration Variables
 
 # Trigger type: this workflow runs manually from the GitHub UI
 on:
