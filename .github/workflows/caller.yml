@@ -3,10 +3,9 @@
 # The name of the workflow as it appears in the GitHub Actions UI
 name: Call Reusable Workflow
 
-# This workflow is triggered when a push is made to the 'main' branch
+# Trigger type: this workflow runs manually from the GitHub UI
 on:
-  push:
-    branches: [main]
+  workflow_dispatch
 
 jobs:
   # Define a job that uses a reusable workflow
