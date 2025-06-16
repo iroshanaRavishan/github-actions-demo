@@ -7,7 +7,7 @@ const requestHandler = (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
 
   // End the response and send an HTML message to the client
-  res.end('<h1>Hello from Node.js server. This is a sample application (version 1.1)!!!</h1>');
+  res.end('<h1>Hello from Node.js server. This is a sample application (version 1.1.2)!!!</h1>');
 };
 
 // Create an HTTP server using the requestHandler function
