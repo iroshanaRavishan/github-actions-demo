@@ -37,7 +37,7 @@ jobs:
       - name: Run API Tests with Newman
         run: |
           # Start the Node.js server in the background using nohup to keep it running after this step ends
-          nohup node server.js &
+          nohup node src/server/start.js &
 
           # Wait a few seconds to ensure the server has fully started before running the tests
           sleep 3
