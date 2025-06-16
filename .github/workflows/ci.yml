@@ -33,3 +33,15 @@ jobs:
       # Step 5: Run Jest tests
       - name: Run tests
         run: npm test
+
+      - name: Run API Tests with Newman
+        run: |
+          # Start the Node.js server in the background using nohup to keep it running after this step ends
+          nohup node src/server/start.js &
+
+          # Wait a few seconds to ensure the server has fully started before running the tests
+          sleep 3
+
+          # Execute the Newman API tests
+          npm run api-test
+
