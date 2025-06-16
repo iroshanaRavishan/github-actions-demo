@@ -22,4 +22,11 @@ export default defineConfig([
       quotes: ['error', 'single'],                // Custom rule: require single quotes
     },
   },
+  {
+    // This block is for Jest test files
+    files: ['**/__tests__/**/*.js', '**/*.test.js'],
+    languageOptions: {
+      globals: globals.jest,
+    },
+  },
 ]);
